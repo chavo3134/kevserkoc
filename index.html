@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevser Koç Beauty Lounge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#050505;
+--panel:#0c0c0c;
+--gold:#d4b06a;
+--gold2:#f0d8a2;
+--white:#f6f2eb;
+--line:rgba(212,176,106,.22);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:white;
+font-family:Inter,sans-serif;
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+section{
+padding:110px 7%;
+position:relative;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:88px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+background:rgba(0,0,0,.92);
+backdrop-filter:blur(18px);
+z-index:99999;
+border-bottom:1px solid var(--line);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo img{
+width:58px;
+height:58px;
+object-fit:contain;
+}
+
+.logo span{
+font-family:Cormorant Garamond,serif;
+font-size:30px;
+color:var(--gold2);
+}
+
+nav{
+display:flex;
+gap:24px;
+font-size:14px;
+color:#ddd;
+}
+
+nav a{
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--gold2);
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+align-items:center;
+gap:60px;
+padding-top:140px;
+
+background:
+linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.72),rgba(0,0,0,.95)),
+url("soprano-titanium.png");
+
+background-size:cover;
+background-position:center;
+}
+
+.label{
+color:var(--gold2);
+letter-spacing:4px;
+text-transform:uppercase;
+font-size:12px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-family:Cormorant Garamond,serif;
+font-size:clamp(60px,8vw,110px);
+line-height:.9;
+margin-bottom:24px;
+}
+
+.hero p{
+font-size:17px;
+line-height:1.9;
+color:#ddd1bc;
+max-width:760px;
+margin-bottom:38px;
+}
+
+.heroBtns{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:17px 30px;
+border:1px solid var(--gold);
+background:var(--gold);
+color:black;
+font-weight:700;
+transition:.35s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+background:var(--gold2);
+}
+
+.btnOutline{
+background:transparent;
+color:var(--gold2);
+}
+
+.heroCard{
+background:rgba(0,0,0,.78);
+border:1px solid var(--line);
+padding:16px;
+}
+
+.heroCard img{
+width:100%;
+height:700px;
+object-fit:cover;
+}
+
+.heroInfo{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-top:14px;
+}
+
+.heroInfo div{
+background:#090909;
+border:1px solid var(--line);
+padding:18px;
+text-align:center;
+}
+
+.heroInfo strong{
+display:block;
+font-size:34px;
+color:var(--gold2);
+font-family:Cormorant Garamond,serif;
+}
+
+.marquee{
+overflow:hidden;
+white-space:nowrap;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+background:black;
+}
+
+.marquee div{
+display:inline-block;
+padding:18px 0;
+animation:marquee 30s linear infinite;
+font-size:13px;
+letter-spacing:1px;
+color:var(--gold2);
+}
+
+.marquee span{
+margin:0 36px;
+}
+
+@keyframes marquee{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+.title{
+text-align:center;
+max-width:980px;
+margin:0 auto 70px;
+}
+
+.title h2{
+font-family:Cormorant Garamond,serif;
+font-size:clamp(44px,6vw,78px);
+line-height:1;
+margin-bottom:18px;
+}
+
+.title p{
+color:#c7bba8;
+line-height:1.9;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
+
+.card{
+background:var(--panel);
+border:1px solid var(--line);
+overflow:hidden;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:rgba(240,216,162,.6);
+}
+
+.card img{
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+.cardBody{
+padding:32px;
+}
+
+.card h3{
+font-family:Cormorant Garamond,serif;
+font-size:50px;
+line-height:1;
+margin-bottom:18px;
+color:var(--gold2);
+}
+
+.card p{
+line-height:1.9;
+color:#d6ccbc;
+}
+
+.tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:24px;
+}
+
+.tags span{
+padding:10px 14px;
+border:1px solid rgba(212,176,106,.25);
+font-size:12px;
+color:var(--gold2);
+background:#080808;
+}
+
+.serviceRows{
+display:grid;
+gap:34px;
+}
+
+.serviceRow{
+display:grid;
+grid-template-columns:420px 1fr;
+gap:38px;
+align-items:center;
+background:#090909;
+border:1px solid var(--line);
+padding:18px;
+overflow:hidden;
+}
+
+.serviceRow:nth-child(even){
+grid-template-columns:1fr 420px;
+}
+
+.serviceRow:nth-child(even) .serviceImg{
+order:2;
+}
+
+.serviceImg{
+overflow:hidden;
+}
+
+.serviceImg img{
+width:100%;
+height:340px;
+object-fit:cover;
+transition:1s;
+}
+
+.serviceRow:hover img{
+transform:scale(1.05);
+}
+
+.serviceText{
+padding:20px;
+}
+
+.serviceText h3{
+font-family:Cormorant Garamond,serif;
+font-size:58px;
+line-height:1;
+margin-bottom:18px;
+color:var(--gold2);
+}
+
+.serviceText p{
+line-height:1.9;
+color:#d5ccbc;
+}
+
+.brands{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:18px;
+}
+
+.brand{
+height:110px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:15px;
+background:#0b0b0b;
+border:1px solid var(--line);
+color:var(--gold2);
+font-weight:700;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.step{
+padding:34px;
+background:#0b0b0b;
+border:1px solid var(--line);
+}
+
+.step strong{
+font-size:56px;
+display:block;
+margin-bottom:12px;
+font-family:Cormorant Garamond,serif;
+color:var(--gold2);
+}
+
+.step h3{
+margin-bottom:12px;
+font-size:22px;
+}
+
+.step p{
+line-height:1.8;
+color:#c7bcaa;
+}
+
+.formSection{
+background:
+linear-gradient(rgba(0,0,0,.92),rgba(0,0,0,.92)),
+url("cilt-koltugu.jpg");
+
+background-size:cover;
+background-position:center;
+}
+
+.formBox{
+max-width:1100px;
+margin:auto;
+background:rgba(5,5,5,.92);
+border:1px solid var(--line);
+padding:42px;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+input,select,textarea{
+width:100%;
+padding:18px;
+background:#060606;
+border:1px solid rgba(212,176,106,.25);
+color:white;
+outline:none;
+font-family:Inter,sans-serif;
+}
+
+textarea{
+height:150px;
+resize:none;
+grid-column:1/3;
+}
+
+form button{
+grid-column:1/3;
+}
+
+.contact{
+display:grid;
+grid-template-columns:1fr 1.1fr;
+gap:28px;
+}
+
+.contactBox{
+background:#090909;
+border:1px solid var(--line);
+padding:44px;
+}
+
+.contactBox h3{
+font-size:60px;
+font-family:Cormorant Garamond,serif;
+color:var(--gold2);
+margin-bottom:20px;
+}
+
+.contactBox p{
+line-height:2;
+color:#d0c6b6;
+margin-bottom:10px;
+}
+
+iframe{
+width:100%;
+height:100%;
+min-height:450px;
+border:0;
+filter:grayscale(1) invert(.92);
+}
+
+footer{
+padding:40px 7%;
+text-align:center;
+border-top:1px solid var(--line);
+background:black;
+color:#b9ad98;
+}
+
+.whatsapp{
+position:fixed;
+right:22px;
+bottom:22px;
+width:66px;
+height:66px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+z-index:999999;
+}
+
+.fromLeft,
+.fromRight,
+.fromBottom{
+opacity:0;
+transition:1s;
+}
+
+.fromLeft{
+transform:translateX(-70px);
+}
+
+.fromRight{
+transform:translateX(70px);
+}
+
+.fromBottom{
+transform:translateY(60px);
+}
+
+.show{
+opacity:1;
+transform:translate(0);
+}
+
+@media(max-width:1150px){
+
+.hero,
+.contact{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
+.brands{
+grid-template-columns:1fr 1fr;
+}
+
+.steps{
+grid-template-columns:1fr 1fr;
+}
+
+.serviceRow,
+.serviceRow:nth-child(even){
+grid-template-columns:1fr;
+}
+
+.serviceRow:nth-child(even) .serviceImg{
+order:0;
+}
+
+.heroCard img{
+height:520px;
+}
+
+}
+
+@media(max-width:700px){
+
+header{
+padding:0 5%;
+}
+
+nav{
+display:none;
+}
+
+section{
+padding:90px 5%;
+}
+
+.hero{
+padding-top:120px;
+}
+
+.heroCard img{
+height:420px;
+}
+
+.heroInfo{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.brands{
+grid-template-columns:1fr;
+}
+
+.steps{
+grid-template-columns:1fr;
+}
+
+.serviceText h3{
+font-size:42px;
+}
+
+.card h3{
+font-size:40px;
+}
+
+form{
+grid-template-columns:1fr;
+}
+
+textarea,
+form button{
+grid-column:1;
+}
+
+.logo span{
+font-size:23px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="#" class="logo">
+<img src="logo.png">
+<span>Kevser Koç Beauty Lounge</span>
+</a>
+
+<nav>
+<a href="#anasayfa">Anasayfa</a>
+<a href="#lazer">Lazer</a>
+<a href="#cilt">Cilt Bakımı</a>
+<a href="#makyaj">Kalıcı Makyaj</a>
+<a href="#kas">Kaş Kirpik</a>
+<a href="#tirnak">Tırnak</a>
+<a href="#randevu">Randevu</a>
+<a href="#iletisim">İletişim</a>
+</nav>
+
+</header>
+
+<section class="hero" id="anasayfa">
+
+<div class="fromLeft">
+
+<div class="label">Dörtyol / Hatay</div>
+
+<h1>Kevser Koç Beauty Lounge</h1>
+
+<p>
+Lazer epilasyon, iğneli epilasyon, cilt bakımı,
+kalıcı makyaj, kaş kirpik uygulamaları,
+tırnak bakımı ve profesyonel cilt protokolleri.
+7 yıldır Dörtyol’da hizmet veriyoruz.
+</p>
+
+<div class="heroBtns">
+<a href="#randevu" class="btn">Randevu Oluştur</a>
+<a href="#hizmetler" class="btn btnOutline">Hizmetleri İncele</a>
+</div>
+
+</div>
+
+<div class="heroCard fromRight">
+
+<img src="kevser-koc.png">
+
+<div class="heroInfo">
+
+<div>
+<strong>7</strong>
+Yıllık Deneyim
+</div>
+
+<div>
+<strong>2019</strong>
+Kuruluş
+</div>
+
+<div>
+<strong>+90</strong>
+WhatsApp Randevu
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="marquee">
+<div>
+
+<span>ROBOTX MICRO ALEXANDRITE LASER SIEMENS</span>
+<span>SOPRANO TITANIUM DIODE LASER</span>
+<span>İĞNELİ EPİLASYON</span>
+<span>CİLT BAKIMI</span>
+<span>KALICI MAKYAJ</span>
+<span>KAŞ LAMİNASYON</span>
+<span>KİRPİK LAMİNASYON</span>
+<span>PROTEZ JEL TIRNAK</span>
+<span>MANİKÜR</span>
+<span>PEDİKÜR</span>
+
+<span>ROBOTX MICRO ALEXANDRITE LASER SIEMENS</span>
+<span>SOPRANO TITANIUM DIODE LASER</span>
+
+</div>
+</div>
+
+<section id="lazer">
+
+<div class="title fromBottom">
+
+<div class="label">Lazer Epilasyon</div>
+
+<h2>Lazer Sistemleri</h2>
+
+<p>
+ROBOTX Micro Alexandrite Laser Siemens,
+Soprano Titanium Diode Laser
+ve iğneli epilasyon uygulamaları.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card fromLeft">
+
+<img src="lazer-epilasyon.png">
+
+<div class="cardBody">
+
+<h3>ROBOTX Micro Alexandrite</h3>
+
+<p>
+ROBOTX Micro Alexandrite Laser Siemens cihazı ile
+lazer epilasyon uygulamaları.
+</p>
+
+<div class="tags">
+<span>Alexandrite</span>
+<span>Siemens</span>
+<span>Lazer Epilasyon</span>
+</div>
+
+</div>
+</div>
+
+<div class="card fromBottom">
+
+<img src="soprano-titanium.png">
+
+<div class="cardBody">
+
+<h3>Soprano Titanium Diode</h3>
+
+<p>
+Soprano Titanium Diode lazer sistemi ile
+lazer epilasyon uygulamaları.
+</p>
+
+<div class="tags">
+<span>Soprano Titanium</span>
+<span>Diode Laser</span>
+<span>Epilasyon</span>
+</div>
+
+</div>
+</div>
+
+<div class="card fromRight">
+
+<img src="igneli-epilasyon.jpg">
+
+<div class="cardBody">
+
+<h3>İğneli Epilasyon</h3>
+
+<p>
+İğneli epilasyon işlemi kişiye özel değerlendirme ile planlanır.
+</p>
+
+<div class="tags">
+<span>İğneli Epilasyon</span>
+<span>Kişiye Özel</span>
+<span>Uygulama</span>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="hizmetler">
+
+<div class="title fromBottom">
+
+<div class="label">Hizmetler</div>
+
+<h2>Uygulama Alanları</h2>
+
+<p>
+Her hizmet kendi alanında özel olarak konumlandırıldı.
+</p>
+
+</div>
+
+<div class="serviceRows">
+
+<div class="serviceRow fromLeft" id="cilt">
+
+<div class="serviceImg">
+<img src="cilt-bakimi.jpg">
+</div>
+
+<div class="serviceText">
+
+<h3>Cilt Bakımı</h3>
+
+<p>
+Nurederm Kozmetik, Genosys, pHformula,
+Mesosys, Vagheggi ve Theraderm ürün gruplarıyla
+cilt bakımı uygulamaları.
+</p>
+
+<div class="tags">
+<span>Nurederm</span>
+<span>Genosys</span>
+<span>pHformula</span>
+<span>Mesosys</span>
+<span>Vagheggi</span>
+<span>Theraderm</span>
+</div>
+
+</div>
+</div>
+
+<div class="serviceRow fromRight">
+
+<div class="serviceImg">
+<img src="karbon-peeling.jpg">
+</div>
+
+<div class="serviceText">
+
+<h3>Karbon Peeling</h3>
+
+<p>
+Karbon peeling uygulamaları cilt bakım işlemleri arasında yer alır.
+</p>
+
+<div class="tags">
+<span>Karbon Peeling</span>
+<span>Cilt Bakımı</span>
+<span>Bakım</span>
+</div>
+
+</div>
+</div>
+
+<div class="serviceRow fromLeft">
+
+<div class="serviceImg">
+<img src="ignesiz-mezoterapi.jpg">
+</div>
+
+<div class="serviceText">
+
+<h3>İğnesiz Mezoterapi</h3>
+
+<p>
+İğnesiz mezoterapi uygulamaları
+cilt protokolleri içerisinde değerlendirilir.
+</p>
+
+<div class="tags">
+<span>İğnesiz Mezoterapi</span>
+<span>Bakım</span>
+<span>Uygulama</span>
+</div>
+
+</div>
+</div>
+
+<div class="serviceRow fromRight">
+
+<div class="serviceImg">
+<img src="kalici-makyaj.jpg">
+</div>
+
+<div class="serviceText" id="makyaj">
+
+<h3>Kalıcı Makyaj</h3>
+
+<p>
+Dudak renklendirme, microblading,
+dipliner, eyeliner ve kaş pudralama işlemleri.
+</p>
+
+<div class="tags">
+<span>Dudak Renklendirme</span>
+<span>Microblading</span>
+<span>Dipliner</span>
+<span>Eyeliner</span>
+<span>Kaş Pudralama</span>
+</div>
+
+</div>
+</div>
+
+<div class="serviceRow fromLeft" id="kas">
+
+<div class="serviceImg">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="serviceText">
+
+<h3>Kaş ve Kirpik</h3>
+
+<p>
+İpek kirpik, kaş laminasyon ve kirpik laminasyon
+işlemlerinde Mylamination ürün grubu kullanılır.
+</p>
+
+<div class="tags">
+<span>İpek Kirpik</span>
+<span>Kaş Laminasyon</span>
+<span>Kirpik Laminasyon</span>
+<span>Mylamination</span>
+</div>
+
+</div>
+</div>
+
+<div class="serviceRow fromRight" id="tirnak">
+
+<div class="serviceImg">
+<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="serviceText">
+
+<h3>Tırnak Bakımı</h3>
+
+<p>
+Protez jel tırnak, jel güçlendirme,
+kalıcı oje, manikür ve pedikür hizmetleri.
+</p>
+
+<div class="tags">
+<span>Protez Jel Tırnak</span>
+<span>Jel Güçlendirme</span>
+<span>Kalıcı Oje</span>
+<span>Manikür</span>
+<span>Pedikür</span>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="title fromBottom">
+
+<div class="label">Markalar</div>
+
+<h2>Kullanılan Ürün Grupları</h2>
+
+</div>
+
+<div class="brands fromBottom">
+
+<div class="brand">Nurederm Kozmetik</div>
+<div class="brand">Genosys</div>
+<div class="brand">pHformula</div>
+<div class="brand">Mesosys</div>
+<div class="brand">Vagheggi</div>
+<div class="brand">Theraderm</div>
+<div class="brand">Mylamination</div>
+<div class="brand">ROBOTX Micro Alexandrite</div>
+<div class="brand">Soprano Titanium</div>
+<div class="brand">Siemens</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="title fromBottom">
+
+<div class="label">İşlem Süreci</div>
+
+<h2>Randevu ve Uygulama</h2>
+
+</div>
+
+<div class="steps">
+
+<div class="step fromLeft">
+<strong>01</strong>
+<h3>Randevu</h3>
+<p>WhatsApp üzerinden randevu talebi oluşturulur.</p>
+</div>
+
+<div class="step fromBottom">
+<strong>02</strong>
+<h3>Değerlendirme</h3>
+<p>İşleme uygunluk değerlendirilir.</p>
+</div>
+
+<div class="step fromBottom">
+<strong>03</strong>
+<h3>Uygulama</h3>
+<p>Seçilen işlem uygulanır.</p>
+</div>
+
+<div class="step fromRight">
+<strong>04</strong>
+<h3>Bilgilendirme</h3>
+<p>İşlem sonrası süreç aktarılır.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="formSection" id="randevu">
+
+<div class="title fromBottom">
+
+<div class="label">Randevu</div>
+
+<h2>Randevu Oluştur</h2>
+
+<p>
+Formu doldurduğunuzda WhatsApp üzerinden mesaj oluşturulur.
+</p>
+
+</div>
+
+<div class="formBox fromBottom">
+
+<form onsubmit="sendWp(event)">
+
+<input id="name" required placeholder="Ad Soyad">
+
+<input id="phone" required placeholder="Telefon Numarası">
+
+<select id="service" required>
+
+<option value="">Hizmet Seçiniz</option>
+
+<option>ROBOTX Micro Alexandrite</option>
+<option>Soprano Titanium Diode</option>
+<option>İğneli Epilasyon</option>
+<option>Cilt Bakımı</option>
+<option>Karbon Peeling</option>
+<option>İğnesiz Mezoterapi</option>
+<option>Kalıcı Makyaj</option>
+<option>Kaş Laminasyon</option>
+<option>Kirpik Laminasyon</option>
+<option>Protez Jel Tırnak</option>
+<option>Kalıcı Oje</option>
+
+</select>
+
+<input id="date" type="date" required>
+
+<textarea id="note" placeholder="Eklemek istediğiniz not"></textarea>
+
+<button class="btn" type="submit">
+WhatsApp ile Randevu Gönder
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="contact" id="iletisim">
+
+<div class="contactBox fromLeft">
+
+<div class="label">İletişim</div>
+
+<h3>Kevser Koç Beauty Lounge</h3>
+
+<p>
+<b>Telefon:</b><br>
++90 (546) 861 43 07
+</p>
+
+<p>
+<b>Instagram:</b><br>
+@kevserkocbeauty
+</p>
+
+<p>
+<b>Adres:</b><br>
+Numuneler Mahallesi Çaylı Cad.
+Park 1 Sok. Florya Apt. No:16/A
+Kat:1 Daire:1 Dörtyol / Hatay
+</p>
+
+<br>
+
+<a href="tel:+905468614307" class="btn">
+Ara
+</a>
+
+</div>
+
+<div class="fromRight">
+
+<iframe src="https://www.google.com/maps?q=Numuneler%20Mahallesi%20%C3%87ayl%C4%B1%20Cad.%20Park%201%20Sok.%20Florya%20Apt.%20No:16/A%20D%C3%B6rtyol%20Hatay&output=embed"></iframe>
+
+</div>
+
+</section>
+
+<footer>
+© 2019 - Kevser Koç Beauty Lounge. Tüm hakları saklıdır.
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/905468614307?text=Merhaba%20Kevser%20Ko%C3%A7%20Beauty%20Lounge%2C%20randevu%20olu%C5%9Fturmak%20istiyorum."
+target="_blank">
+☎
+</a>
+
+<script>
+
+const elements=document.querySelectorAll(".fromLeft,.fromRight,.fromBottom");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+},{threshold:.15});
+
+elements.forEach(el=>{
+observer.observe(el);
+});
+
+function sendWp(e){
+
+e.preventDefault();
+
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const service=document.getElementById("service").value;
+const date=document.getElementById("date").value;
+const note=document.getElementById("note").value;
+
+const message =
+`Merhaba Kevser Koç Beauty Lounge,%0A%0A`+
+`Randevu oluşturmak istiyorum.%0A%0A`+
+`Ad Soyad: ${name}%0A`+
+`Telefon: ${phone}%0A`+
+`Hizmet: ${service}%0A`+
+`Tarih: ${date}%0A`+
+`Not: ${note}`;
+
+window.open(`https://wa.me/905468614307?text=${message}`,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
