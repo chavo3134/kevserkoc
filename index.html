@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kevser Koç Beauty Lounge</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{--bg:#050505;--card:#0b0b0b;--gold:#d2ad67;--gold2:#f2d99b;--text:#f7f1e7;--muted:#c8bdab;--line:rgba(210,173,103,.28);--red:#e23127}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,7 +22,7 @@ header{position:fixed;top:0;left:0;width:100%;height:96px;z-index:9999;padding:0
 nav{display:flex;gap:21px;color:#ddd;font-size:14px}
 nav a:hover{color:var(--gold2)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;background:var(--gold);border:1px solid var(--gold);color:#050505;font-weight:800;text-align:center;transition:.3s}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;background:var(--gold);border:1px solid var(--gold);color:#050505;font-weight:800;text-align:center;transition:.3s;cursor:pointer}
 .btn:hover{background:var(--gold2);transform:translateY(-3px)}
 .btn.outline{background:transparent;color:var(--gold2)}
 .btn.red{background:var(--red);border-color:var(--red);color:white}
@@ -54,7 +55,8 @@ nav a:hover{color:var(--gold2)}
 .card h3{font-family:Cormorant Garamond,serif;color:var(--gold2);font-size:42px;line-height:1;margin-bottom:16px}
 .card p{color:#d5cbbb;line-height:1.85}
 .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.tags span{border:1px solid rgba(210,173,103,.28);color:var(--gold2);padding:9px 12px;font-size:12px;background:#070707}
+.tags span,.infoBtn{border:1px solid rgba(210,173,103,.28);color:var(--gold2);padding:9px 12px;font-size:12px;background:#070707;cursor:pointer;transition:.25s}
+.tags span:hover,.infoBtn:hover{background:rgba(210,173,103,.12);border-color:var(--gold2)}
 
 .rows{display:grid;gap:30px}
 .serviceRow{display:grid;grid-template-columns:400px 1fr;gap:34px;align-items:center;border:1px solid var(--line);background:#090909;padding:18px}
@@ -65,9 +67,17 @@ nav a:hover{color:var(--gold2)}
 .serviceText h3{font-family:Cormorant Garamond,serif;color:var(--gold2);font-size:52px;line-height:1;margin-bottom:16px}
 .serviceText p{color:#d4cab9;line-height:1.85}
 
+.detailBox{display:none;margin-top:18px;border:1px solid rgba(210,173,103,.35);background:linear-gradient(145deg,#070707,#111);padding:18px;color:#d7cbb8;line-height:1.75}
+.detailBox.active{display:block;animation:openBox .35s ease}
+.detailBox b{color:var(--gold2)}
+.detailBox ul{padding-left:18px;margin-top:10px}
+.detailBox li{margin:7px 0}
+@keyframes openBox{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
 .brands,.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .brand,.review{border:1px solid var(--line);background:#0b0b0b;padding:28px}
-.brand{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--gold2);font-weight:800;min-height:90px}
+.brand{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--gold2);font-weight:800;min-height:90px;cursor:pointer;transition:.3s}
+.brand:hover{transform:translateY(-5px);border-color:var(--gold2)}
 .review strong{display:block;color:var(--gold2);font-family:Cormorant Garamond,serif;font-size:32px;margin-bottom:12px}
 .review p{color:#d3c8b7;line-height:1.8}
 
@@ -163,12 +173,13 @@ footer{padding:34px 7%;text-align:center;color:#aaa08f;border-top:1px solid var(
   <div class="fromLeft">
     <div class="label">Dörtyol / Hatay</div>
     <h1>Kevser Koç Beauty Lounge</h1>
-    <p>Lazer epilasyon, iğneli epilasyon, cilt bakımı, kalıcı makyaj, kaş ve kirpik uygulamaları, tırnak bakımı ve cilt protokolleri. 7 yıldır Dörtyol’da hizmet veriyoruz.</p>
+    <p>Lazer epilasyon, iğneli epilasyon, cilt bakımı, kalıcı makyaj, kaş ve kirpik uygulamaları, tırnak bakımı ve cilt protokolleri. İşlem öncesi bilgilendirme ve kişiye özel değerlendirme ile 7 yıldır Dörtyol’da hizmet veriyoruz.</p>
     <div class="heroBtns">
       <a href="#randevu" class="btn">Randevu Oluştur</a>
       <a href="#hizmetler" class="btn outline">Hizmetleri İncele</a>
     </div>
   </div>
+
   <div class="heroCard fromRight">
     <img src="kevser-koc.png" alt="Kevser Koç">
     <div class="heroInfo">
@@ -187,52 +198,277 @@ footer{padding:34px 7%;text-align:center;color:#aaa08f;border-top:1px solid var(
   <div class="title fromBottom">
     <div class="label">Lazer Epilasyon</div>
     <h2>Lazer Sistemleri</h2>
-    <p>ROBOTX Micro Alexandrite Lazer Siemens, Soprano Titanium Diode Lazer ve iğneli epilasyon uygulamaları.</p>
+    <p>Lazer ve epilasyon uygulamaları, kıl yapısı ve cilt ihtiyacına göre değerlendirilerek planlanır. Detayları görmek için işlem kutusuna tıklayın.</p>
   </div>
+
   <div class="grid">
-    <div class="card fromLeft"><img src="lazer-epilasyon.png" alt="ROBOTX Micro Alexandrite"><div class="cardBody"><h3>ROBOTX Micro Alexandrite</h3><p>ROBOTX Micro Alexandrite Lazer Siemens cihazı ile lazer epilasyon uygulamaları.</p><div class="tags"><span>Alexandrite</span><span>Siemens</span><span>Lazer epilasyon</span></div></div></div>
-    <div class="card fromBottom"><img src="soprano-titanyum.png" alt="Soprano Titanium Diode"><div class="cardBody"><h3>Soprano Titanium Diode</h3><p>Soprano Titanium Diode lazer sistemi ile lazer epilasyon uygulamaları.</p><div class="tags"><span>Soprano Titanium</span><span>Diode Lazer</span><span>Epilasyon</span></div></div></div>
-    <div class="card fromRight"><img src="igneli-epilasyon.jpg" alt="İğneli Epilasyon"><div class="cardBody"><h3>İğneli Epilasyon</h3><p>İğneli epilasyon işlemi kişiye özel değerlendirme ile planlanır.</p><div class="tags"><span>İğneli epilasyon</span><span>Kişiye özel</span><span>Uygulama</span></div></div></div>
+    <div class="card fromLeft">
+      <img src="lazer-epilasyon.png" alt="ROBOTX Micro Alexandrite">
+      <div class="cardBody">
+        <h3>ROBOTX Micro Alexandrite</h3>
+        <p>Alexandrite lazer sistemi, özellikle epilasyon uygulamalarında tercih edilen profesyonel cihaz gruplarından biridir.</p>
+        <div class="tags"><span onclick="toggleDetail('d1')">Detaylı Bilgi</span><span>Alexandrite</span><span>Siemens</span></div>
+        <div class="detailBox" id="d1">
+          <b>Ne işe yarar?</b>
+          <p>İstenmeyen tüylerin azaltılması ve daha pürüzsüz bir cilt görünümü hedeflenir.</p>
+          <ul>
+            <li>Kıl köklerine odaklı epilasyon uygulamasıdır.</li>
+            <li>Seans planı kıl yoğunluğu ve bölgeye göre belirlenir.</li>
+            <li>Bacak, kol, koltuk altı, yüz ve vücut bölgelerinde tercih edilebilir.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fromBottom">
+      <img src="soprano-titanyum.png" alt="Soprano Titanium Diode">
+      <div class="cardBody">
+        <h3>Soprano Titanium Diode</h3>
+        <p>Diode lazer sistemi, konforlu uygulama hedefiyle farklı cilt ve kıl yapılarında değerlendirilebilir.</p>
+        <div class="tags"><span onclick="toggleDetail('d2')">Detaylı Bilgi</span><span>Soprano Titanium</span><span>Diode Lazer</span></div>
+        <div class="detailBox" id="d2">
+          <b>Faydası nedir?</b>
+          <p>Düzenli seanslarla tüy görünümünün azalmasına destek olur. Uygulama alanı ve seans aralığı kişiye göre planlanır.</p>
+          <ul>
+            <li>Geniş vücut bölgelerinde kullanılabilir.</li>
+            <li>Konforlu epilasyon deneyimi hedeflenir.</li>
+            <li>İşlem öncesi cilt ve kıl analizi yapılması önemlidir.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fromRight">
+      <img src="igneli-epilasyon.jpg" alt="İğneli Epilasyon">
+      <div class="cardBody">
+        <h3>İğneli Epilasyon</h3>
+        <p>İğneli epilasyon, özellikle ince, açık renkli veya lazerin yeterli etki göstermediği kıllarda değerlendirilebilir.</p>
+        <div class="tags"><span onclick="toggleDetail('d3')">Detaylı Bilgi</span><span>Kişiye özel</span><span>Bölgesel</span></div>
+        <div class="detailBox" id="d3">
+          <b>Nerede kullanılır?</b>
+          <p>Çene, bıyık üstü, yüz, kaş çevresi ve küçük hassas bölgelerde tercih edilebilir.</p>
+          <ul>
+            <li>Kıl köküne tek tek işlem yapılır.</li>
+            <li>İnce ve açık renkli kıllarda seçenek olabilir.</li>
+            <li>Seans süresi bölge yoğunluğuna göre değişir.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="hizmetler">
-  <div class="title fromBottom"><div class="label">Hizmetler</div><h2>Uygulama Alanları</h2><p>Her hizmet ayrı alanda, taşmadan ve mobil uyumlu şekilde yerleştirildi.</p></div>
+  <div class="title fromBottom">
+    <div class="label">Hizmetler</div>
+    <h2>Uygulama Alanları</h2>
+    <p>İşlem başlıklarına tıklayarak nerede kullanıldığını, ne işe yaradığını ve faydalarını görebilirsiniz.</p>
+  </div>
+
   <div class="rows">
-    <div class="serviceRow fromLeft"><div class="serviceImg"><img src="cilt-bakimi.jpg" alt="Cilt Bakımı"></div><div class="serviceText"><h3>Cilt Bakımı</h3><p>Nurederm Kozmetik, Genosys, pHformula, Mesosys, Vagheggi ve Theraderm ürün gruplarıyla cilt bakımı uygulamaları.</p><div class="tags"><span>Nurederm</span><span>Genosys</span><span>pHformula</span><span>Mesosys</span><span>Vagheggi</span><span>Theraderm</span></div></div></div>
-    <div class="serviceRow fromRight"><div class="serviceImg"><img src="karbon-soyma.jpg" alt="Karbon Peeling"></div><div class="serviceText"><h3>Karbon Peeling</h3><p>Karbon peeling uygulamaları cilt bakım işlemleri arasında yer alır.</p><div class="tags"><span>Karbon peeling</span><span>Cilt bakımı</span><span>Bakım</span></div></div></div>
-    <div class="serviceRow fromLeft"><div class="serviceImg"><img src="ignesiz-mezoterapi.jpg" alt="İğnesiz Mezoterapi"></div><div class="serviceText"><h3>İğnesiz Mezoterapi</h3><p>İğnesiz mezoterapi uygulamaları cilt bakım programları içinde değerlendirilir.</p><div class="tags"><span>İğnesiz mezoterapi</span><span>Cilt bakımı</span><span>Uygulama</span></div></div></div>
-    <div class="serviceRow fromRight"><div class="serviceImg"><img src="kalici-makyaj.jpg" alt="Kalıcı Makyaj"></div><div class="serviceText"><h3>Kalıcı Makyaj</h3><p>Dudak renklendirme, microblading, dipliner, eyeliner ve kaş pudralama işlemleri yapılır.</p><div class="tags"><span>Dudak renklendirme</span><span>Microblading</span><span>Dipliner</span><span>Eyeliner</span><span>Kaş pudralama</span></div></div></div>
-    <div class="serviceRow fromLeft"><div class="serviceImg"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Kaş ve Kirpik"></div><div class="serviceText"><h3>Kaş ve Kirpik</h3><p>İpek kirpik, kaş laminasyon ve kirpik laminasyon işlemlerinde Mylamination ürün grubu kullanılır.</p><div class="tags"><span>İpek kirpik</span><span>Kaş laminasyon</span><span>Kirpik laminasyon</span><span>Mylamination</span></div></div></div>
-    <div class="serviceRow fromRight"><div class="serviceImg"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop" alt="Tırnak Bakımı"></div><div class="serviceText"><h3>Tırnak Bakımı</h3><p>Protez jel tırnak, jel güçlendirme, kalıcı oje, manikür ve pedikür hizmetleri.</p><div class="tags"><span>Protez jel tırnak</span><span>Jel güçlendirme</span><span>Kalıcı oje</span><span>Manikür</span><span>Pedikür</span></div></div></div>
-    <div class="serviceRow fromLeft"><div class="serviceImg"><img src="cilt-koltugu.jpg" alt="Cilt Protokolleri"></div><div class="serviceText"><h3>Cilt Protokolleri</h3><p>Pumpkin Peel, Black Peel, Yes Peel, Snowcell ve Collagen bakımı uygulamaları cilt ihtiyacına göre değerlendirilir.</p><div class="tags"><span>Pumpkin Peel</span><span>Black Peel</span><span>Yes Peel</span><span>Snowcell</span><span>Collagen bakımı</span></div></div></div>
+
+    <div class="serviceRow fromLeft">
+      <div class="serviceImg"><img src="cilt-bakimi.jpg" alt="Cilt Bakımı"></div>
+      <div class="serviceText">
+        <h3>Cilt Bakımı</h3>
+        <p>Nurederm Kozmetik, Genosys, pHformula, Mesosys, Vagheggi ve Theraderm ürün gruplarıyla cilt ihtiyacına göre bakım uygulanır.</p>
+        <div class="tags">
+          <span onclick="toggleDetail('s1')">Cilt Bakımı Nedir?</span><span>Nurederm</span><span>Genosys</span><span>pHformula</span><span>Mesosys</span><span>Vagheggi</span><span>Theraderm</span>
+        </div>
+        <div class="detailBox" id="s1">
+          <b>Ne işe yarar?</b>
+          <p>Cildin daha temiz, canlı ve dengeli görünmesine destek olan bakım uygulamalarıdır.</p>
+          <ul>
+            <li>Gözenek görünümü, matlık ve kuruluk gibi ihtiyaçlara göre planlanır.</li>
+            <li>Cilt temizliği, nem desteği ve bakım protokolü uygulanabilir.</li>
+            <li>Düzenli bakım, cildin daha sağlıklı ve bakımlı görünmesine yardımcı olur.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromRight">
+      <div class="serviceImg"><img src="karbon-soyma.jpg" alt="Karbon Peeling"></div>
+      <div class="serviceText">
+        <h3>Karbon Peeling</h3>
+        <p>Cilt yüzeyinin daha arınmış, canlı ve dengeli görünmesine destek olmak için uygulanan bakım işlemidir.</p>
+        <div class="tags"><span onclick="toggleDetail('s2')">Karbon Peeling Detay</span><span>Cilt tonu</span><span>Canlı görünüm</span></div>
+        <div class="detailBox" id="s2">
+          <b>Nerede kullanılır?</b>
+          <p>Genellikle yüz bölgesinde, yağlanma, mat görünüm ve gözenek görünümü gibi konularda değerlendirilir.</p>
+          <ul>
+            <li>Cilt yüzeyinin daha pürüzsüz görünmesine destek olur.</li>
+            <li>Yağ dengesi ve parlak görünüm hedeflenir.</li>
+            <li>Bakım sonrası cilt daha ferah hissedilebilir.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromLeft">
+      <div class="serviceImg"><img src="ignesiz-mezoterapi.jpg" alt="İğnesiz Mezoterapi"></div>
+      <div class="serviceText">
+        <h3>İğnesiz Mezoterapi</h3>
+        <p>Cilt bakım ürünlerinin destekleyici şekilde uygulanmasıyla daha nemli, canlı ve bakımlı görünüm hedeflenir.</p>
+        <div class="tags"><span onclick="toggleDetail('s3')">İğnesiz Mezoterapi Detay</span><span>Nem desteği</span><span>Canlılık</span></div>
+        <div class="detailBox" id="s3">
+          <b>Faydası nedir?</b>
+          <p>Ciltte nem, parlaklık ve bakım etkisi hedefleyen konforlu bir bakım seçeneğidir.</p>
+          <ul>
+            <li>Cildin ihtiyacına göre ürün seçimi yapılır.</li>
+            <li>Kuruluk ve cansız görünüm için tercih edilebilir.</li>
+            <li>İğnesiz olduğu için daha konforlu bir bakım deneyimi sunar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromRight">
+      <div class="serviceImg"><img src="kalici-makyaj.jpg" alt="Kalıcı Makyaj"></div>
+      <div class="serviceText">
+        <h3>Kalıcı Makyaj</h3>
+        <p>Dudak renklendirme, microblading, dipliner, eyeliner ve kaş pudralama işlemleriyle daha net ve bakımlı görünüm hedeflenir.</p>
+        <div class="tags">
+          <span onclick="toggleDetail('s4')">Kalıcı Makyaj Detay</span><span>Dudak renklendirme</span><span>Microblading</span><span>Dipliner</span><span>Eyeliner</span><span>Kaş pudralama</span>
+        </div>
+        <div class="detailBox" id="s4">
+          <b>Nerede kullanılır?</b>
+          <p>Kaş, göz çevresi ve dudak bölgesinde doğal hatları belirginleştirmek için uygulanır.</p>
+          <ul>
+            <li>Kaş pudralama ve microblading ile kaş formu desteklenir.</li>
+            <li>Dipliner ve eyeliner göz hattını daha belirgin gösterir.</li>
+            <li>Dudak renklendirme, dudakların daha canlı görünmesine yardımcı olur.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromLeft">
+      <div class="serviceImg"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Kaş ve Kirpik"></div>
+      <div class="serviceText">
+        <h3>Kaş ve Kirpik</h3>
+        <p>İpek kirpik, kaş laminasyon ve kirpik laminasyon işlemlerinde Mylamination ürün grubu kullanılır.</p>
+        <div class="tags"><span onclick="toggleDetail('s5')">Kaş & Kirpik Detay</span><span>İpek kirpik</span><span>Kaş laminasyon</span><span>Kirpik laminasyon</span><span>Mylamination</span></div>
+        <div class="detailBox" id="s5">
+          <b>Ne işe yarar?</b>
+          <p>Bakışları daha belirgin, kaş ve kirpikleri daha düzenli göstermek için uygulanır.</p>
+          <ul>
+            <li>Kaş laminasyon, kaşların daha taranmış ve sabit görünmesine destek olur.</li>
+            <li>Kirpik laminasyon, doğal kirpiklerin daha kıvrık görünmesine yardımcı olur.</li>
+            <li>İpek kirpik, daha yoğun ve belirgin kirpik görünümü sağlar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromRight">
+      <div class="serviceImg"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop" alt="Tırnak Bakımı"></div>
+      <div class="serviceText">
+        <h3>Tırnak Bakımı</h3>
+        <p>Protez jel tırnak, jel güçlendirme, kalıcı oje, manikür ve pedikür hizmetleriyle temiz ve estetik görünüm hedeflenir.</p>
+        <div class="tags"><span onclick="toggleDetail('s6')">Tırnak Bakımı Detay</span><span>Protez jel</span><span>Jel güçlendirme</span><span>Kalıcı oje</span><span>Manikür</span><span>Pedikür</span></div>
+        <div class="detailBox" id="s6">
+          <b>Faydası nedir?</b>
+          <p>El ve ayak tırnaklarının daha bakımlı, temiz ve estetik görünmesine destek olur.</p>
+          <ul>
+            <li>Protez jel tırnak, daha uzun ve şekilli tırnak görünümü sağlar.</li>
+            <li>Jel güçlendirme, doğal tırnak görünümünü destekler.</li>
+            <li>Kalıcı oje, uzun süre düzenli oje görünümü için tercih edilir.</li>
+            <li>Manikür ve pedikür, el-ayak bakımının temel uygulamalarıdır.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceRow fromLeft">
+      <div class="serviceImg"><img src="cilt-koltugu.jpg" alt="Cilt Protokolleri"></div>
+      <div class="serviceText">
+        <h3>Cilt Protokolleri</h3>
+        <p>Pumpkin Peel, Black Peel, Yes Peel, Snowcell ve Collagen bakımı uygulamaları cilt ihtiyacına göre değerlendirilir.</p>
+        <div class="tags"><span onclick="toggleDetail('s7')">Cilt Protokolleri Detay</span><span>Pumpkin Peel</span><span>Black Peel</span><span>Yes Peel</span><span>Snowcell</span><span>Collagen bakımı</span></div>
+        <div class="detailBox" id="s7">
+          <b>Ne amaçla yapılır?</b>
+          <p>Cildin ihtiyacına göre yenilenmiş, nemli, aydınlık ve daha bakımlı görünüm hedeflenir.</p>
+          <ul>
+            <li>Pumpkin Peel ve Black Peel cilt yenileme protokollerinde tercih edilebilir.</li>
+            <li>Snowcell daha aydınlık ve canlı görünüm hedefleyen bakımlarda kullanılır.</li>
+            <li>Collagen bakımı, nem ve dolgun görünüm desteği için uygulanabilir.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section>
-  <div class="title fromBottom"><div class="label">Markalar</div><h2>Kullanılan Ürün Grupları</h2></div>
-  <div class="brands fromBottom">
-    <div class="brand">Nurederm Kozmetik</div><div class="brand">Genosys</div><div class="brand">pHformula</div><div class="brand">Mesosys</div><div class="brand">Vagheggi</div><div class="brand">Theraderm</div><div class="brand">Mylamination</div><div class="brand">ROBOTX Micro Alexandrite</div><div class="brand">Soprano Titanium</div>
+  <div class="title fromBottom">
+    <div class="label">Markalar</div>
+    <h2>Kullanılan Ürün Grupları</h2>
+    <p>Ürün ve cihaz grupları, yapılan işleme ve cilt ihtiyacına göre tercih edilir.</p>
   </div>
+  <div class="brands fromBottom">
+    <div class="brand" onclick="toggleDetail('b1')">Nurederm Kozmetik</div>
+    <div class="brand" onclick="toggleDetail('b2')">Genosys</div>
+    <div class="brand" onclick="toggleDetail('b3')">pHformula</div>
+    <div class="brand" onclick="toggleDetail('b4')">Mesosys</div>
+    <div class="brand" onclick="toggleDetail('b5')">Vagheggi</div>
+    <div class="brand" onclick="toggleDetail('b6')">Theraderm</div>
+    <div class="brand" onclick="toggleDetail('b7')">Mylamination</div>
+    <div class="brand" onclick="toggleDetail('b8')">ROBOTX Micro Alexandrite</div>
+    <div class="brand" onclick="toggleDetail('b9')">Soprano Titanium</div>
+  </div>
+
+  <div class="detailBox" id="b1"><b>Nurederm Kozmetik:</b> Cilt bakım uygulamalarında cildin temizlenmesi, nemlenmesi ve daha dengeli görünmesi için kullanılan ürün gruplarındandır.</div>
+  <div class="detailBox" id="b2"><b>Genosys:</b> Cilt bakımı ve profesyonel bakım protokollerinde cildin ihtiyacına göre değerlendirilen ürün gruplarındandır.</div>
+  <div class="detailBox" id="b3"><b>pHformula:</b> Cilt tonu, yüzey görünümü ve bakım protokollerinde tercih edilen profesyonel ürün gruplarından biridir.</div>
+  <div class="detailBox" id="b4"><b>Mesosys:</b> Cilt bakım programlarında nem, canlılık ve destekleyici bakım amacıyla kullanılan ürün gruplarındandır.</div>
+  <div class="detailBox" id="b5"><b>Vagheggi:</b> Cilt bakımında daha canlı, dengeli ve bakımlı görünüm hedefleyen uygulamalarda değerlendirilebilir.</div>
+  <div class="detailBox" id="b6"><b>Theraderm:</b> Cilt ihtiyacına göre bakım ve destekleyici protokollerde kullanılan ürün gruplarındandır.</div>
+  <div class="detailBox" id="b7"><b>Mylamination:</b> Kaş laminasyon ve kirpik laminasyon uygulamalarında kullanılan ürün grubudur.</div>
+  <div class="detailBox" id="b8"><b>ROBOTX Micro Alexandrite:</b> Lazer epilasyon uygulamalarında istenmeyen tüylerin azaltılması amacıyla tercih edilen cihaz grubudur.</div>
+  <div class="detailBox" id="b9"><b>Soprano Titanium:</b> Diode lazer epilasyon uygulamalarında konforlu ve profesyonel işlem hedefiyle kullanılan cihaz grubudur.</div>
 </section>
 
 <section id="memnuniyet">
-  <div class="title fromBottom"><div class="label">Kullananlar</div><h2>Müşteri Memnuniyeti</h2><p>Danışanların en çok dikkat ettiği konular; işlem sonucu, hijyen, ilgi ve düzenli takiptir.</p></div>
+  <div class="title fromBottom">
+    <div class="label">Kullananlar</div>
+    <h2>Müşteri Memnuniyeti</h2>
+    <p>Danışanların en çok dikkat ettiği konular; işlem sonucu, hijyen, ilgi ve düzenli takiptir.</p>
+  </div>
   <div class="reviews">
     <div class="review fromLeft"><strong>Temiz ve düzenli ortam</strong><p>Merkeze gelen danışanlar, işlemlerin düzenli ve temiz bir ortamda yapılmasını özellikle önemsiyor.</p></div>
-    <div class="review fromBottom"><strong>İşlem öncesi bilgilendirme</strong><p>Uygulama öncesinde yapılacak işlem hakkında açıklama yapılması danışanların kendini daha rahat hissetmesini sağlar.</p></div>
+    <div class="review fromBottom"><strong>İşlem öncesi bilgilendirme</strong><p>Uygulama öncesinde işlem hakkında açıklama yapılması danışanların kendini daha rahat hissetmesini sağlar.</p></div>
     <div class="review fromRight"><strong>Doğal ve bakımlı görünüm</strong><p>Cilt bakımı, kaş-kirpik ve kalıcı makyaj işlemlerinde hedef abartıdan uzak, bakımlı bir görünüm oluşturmaktır.</p></div>
   </div>
 </section>
 
 <section class="formSection" id="randevu">
-  <div class="title fromBottom"><div class="label">Randevu</div><h2>Randevu Oluştur</h2><p>Formu doldurduğunuzda WhatsApp üzerinden mesaj oluşturulur.</p></div>
+  <div class="title fromBottom">
+    <div class="label">Randevu</div>
+    <h2>Randevu Oluştur</h2>
+    <p>Formu doldurduğunuzda WhatsApp üzerinden mesaj oluşturulur.</p>
+  </div>
   <div class="formBox fromBottom">
     <form onsubmit="sendWp(event)">
       <input id="name" required placeholder="Ad Soyad">
       <input id="phone" required placeholder="Telefon Numarası">
       <select id="service" required>
-        <option value="">Hizmet Seçiniz</option><option>ROBOTX Micro Alexandrite</option><option>Soprano Titanium Diode</option><option>İğneli Epilasyon</option><option>Cilt Bakımı</option><option>Karbon Peeling</option><option>İğnesiz Mezoterapi</option><option>Kalıcı Makyaj</option><option>Kaş Laminasyon</option><option>Kirpik Laminasyon</option><option>İpek Kirpik</option><option>Protez Jel Tırnak</option><option>Kalıcı Oje</option><option>Manikür</option><option>Pedikür</option>
+        <option value="">Hizmet Seçiniz</option>
+        <option>ROBOTX Micro Alexandrite</option>
+        <option>Soprano Titanium Diode</option>
+        <option>İğneli Epilasyon</option>
+        <option>Cilt Bakımı</option>
+        <option>Karbon Peeling</option>
+        <option>İğnesiz Mezoterapi</option>
+        <option>Kalıcı Makyaj</option>
+        <option>Kaş Laminasyon</option>
+        <option>Kirpik Laminasyon</option>
+        <option>İpek Kirpik</option>
+        <option>Protez Jel Tırnak</option>
+        <option>Kalıcı Oje</option>
+        <option>Manikür</option>
+        <option>Pedikür</option>
       </select>
       <input id="date" type="date" required>
       <textarea id="note" placeholder="Eklemek istediğiniz not"></textarea>
@@ -253,6 +489,7 @@ footer{padding:34px 7%;text-align:center;color:#aaa08f;border-top:1px solid var(
       <a class="btn red" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Numuneler%20Mahallesi%20%C3%87ayl%C4%B1%20Cad.%20Park%201%20Sok.%20Florya%20Apt.%20No%3A16%2FA%20Kat%3A1%20Daire%3A1%20D%C3%B6rtyol%20Hatay">Google Haritalar’da Aç</a>
     </div>
   </div>
+
   <div class="mapBox fromRight">
     <div class="mapLabel">📍 Kevser Koç Beauty Lounge<br>Numuneler Mah. Çaylı Cad. Park 1 Sok. No:16/A</div>
     <div class="bigPin">📍</div>
@@ -275,8 +512,20 @@ footer{padding:34px 7%;text-align:center;color:#aaa08f;border-top:1px solid var(
 
 <script>
 const elements=document.querySelectorAll(".fromLeft,.fromRight,.fromBottom");
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show")}})},{threshold:.12});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:.12});
 elements.forEach(el=>observer.observe(el));
+
+function toggleDetail(id){
+  const box=document.getElementById(id);
+  if(!box)return;
+  box.classList.toggle("active");
+}
 
 function sendWp(e){
   e.preventDefault();
